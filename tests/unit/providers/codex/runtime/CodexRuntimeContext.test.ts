@@ -88,6 +88,18 @@ describe('createCodexRuntimeContext', () => {
     expect(context.memoriesDirTarget).toBe('/Users/test/.codex/memories');
   });
 
+  it('allows older initialize responses that omit platform metadata', () => {
+    const context = createCodexRuntimeContext(
+      createHostLaunchSpec(),
+      {
+        userAgent: 'test/0.1',
+      },
+    );
+
+    expect(context.codexHomeTarget).toBe('/Users/test/.codex');
+    expect(context.sessionsDirTarget).toBe('/Users/test/.codex/sessions');
+  });
+
   it('keeps transcript roots nullable when initialize omits codexHome for WSL targets', () => {
     const context = createCodexRuntimeContext(
       createLaunchSpec(),

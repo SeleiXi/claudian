@@ -70,13 +70,19 @@ function validateInitializeTarget(
   launchSpec: CodexLaunchSpec,
   initializeResult: InitializeResult,
 ): void {
-  if (initializeResult.platformOs !== launchSpec.target.platformOs) {
+  if (
+    initializeResult.platformOs
+    && initializeResult.platformOs !== launchSpec.target.platformOs
+  ) {
     throw new Error(
       `Codex target mismatch: expected ${launchSpec.target.platformOs}, received ${initializeResult.platformOs}`,
     );
   }
 
-  if (initializeResult.platformFamily !== launchSpec.target.platformFamily) {
+  if (
+    initializeResult.platformFamily
+    && initializeResult.platformFamily !== launchSpec.target.platformFamily
+  ) {
     throw new Error(
       `Codex target mismatch: expected ${launchSpec.target.platformFamily}, received ${initializeResult.platformFamily}`,
     );

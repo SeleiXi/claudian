@@ -44,8 +44,8 @@ export interface InitializeParams {
 export interface InitializeResult {
   userAgent: string;
   codexHome?: string;
-  platformFamily: string;
-  platformOs: string;
+  platformFamily?: string;
+  platformOs?: string;
 }
 
 // ---------------------------------------------------------------------------
